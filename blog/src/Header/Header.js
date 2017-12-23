@@ -1,14 +1,14 @@
-import component from 'react';
-import '../CSS/creative.min.css'; 
+import React, { Component } from 'react';
+import { Navbar } from 'react-bootstrap';
 
-class Header extends Component {
-    render () {
+class Nav extends Component {
+    render() {
         return (
-            <div>
-                <p>ok</p>
-            </div>
+            <Navbar >
+                <a href="#">React-Bootstrap</a>
+            </Navbar>
         );
     }
 }
 
-export default Header
+export default Nav;
