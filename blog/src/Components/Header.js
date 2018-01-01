@@ -8,7 +8,7 @@ class Header extends Component {
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           
-          <li><Link to="/">Home</Link></li>
+          <a><Link to="/">Home</Link></a>
           <NavDropdown eventKey="1" title="Category" id="basic-nav-dropdown">
             <MenuItem>React</MenuItem>
             <MenuItem><Link to="Fitness">Fitness</Link></MenuItem>

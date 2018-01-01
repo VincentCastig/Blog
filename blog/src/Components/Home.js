@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const Home = () => {
-    return (
-        <h1>Welcome to the Home Page</h1>
-    )
+class Home extends Component {
+    renderArticleList() {
+        return this.props.articles.map( (article) => {
+            return (
+            <li key={article.title} className="list-group-item">{article.title}</li>
+            )
+        })
+    }
+    render() {
+        return (
+            <ul>
+                {this.renderArticleList()}
+            </ul>
+        )
+    }
 }
 
-export default Home;
+function mapStateToProps(state) {
+    console.log(state);
+    return { articles: state.articles}
+}
+
+export default connect(mapStateToProps)(Home);
