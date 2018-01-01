@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
+import Routes from './Routes/routes';
 import logo from './logo.svg';
 import './App.css';
-import Nav from './Header/header';
+import Header from './Components/Header';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <Nav />
-        <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <h1 className="App-title">VincentCastigliola.com</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+        
+            { Routes }
+        </div>
+      </BrowserRouter>
     );
   }
 }
