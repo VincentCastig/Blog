@@ -9,12 +9,13 @@ class Header extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           
           <a><Link to="/">Home</Link></a>
-          <NavDropdown eventKey="1" title="Category" id="basic-nav-dropdown">
-            <MenuItem>React</MenuItem>
+          <a><NavDropdown eventKey="1" title="Category" id="basic-nav-dropdown">
+            <MenuItem>Programming</MenuItem>
             <MenuItem><Link to="Fitness">Fitness</Link></MenuItem>
-            <MenuItem>Health</MenuItem>
-            <MenuItem>Italian</MenuItem>
+            <MenuItem>Cooking</MenuItem>
+            <MenuItem>Book Reviews</MenuItem>
           </NavDropdown>
+          </a>
           <h1 className="App-title">-VincentCastigliola.com-</h1>
           <a><Link to="About">About</Link></a>
           <a><Link to="Contact">Contact</Link></a>

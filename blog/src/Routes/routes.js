@@ -14,6 +14,7 @@ export default (
         <Route path="/contact" component={Contact}></Route>
         <Route path="/about" component={About}></Route>
         <Route path="/fitness" component={Fitness}></Route>
+        <Route path="/fitness/:id" component={Fitness}></Route>
         <Route component={Routes}></Route>
     </Switch>
 );
