@@ -7,7 +7,7 @@ const cors = require('cors');
 const path = require('path');
 const port = 3000
 
-// const userCtrl = require('./ctrl/userCtrl');
+const userCtrl = require('./Ctrl/controller');
 // const loginCtrl = require('./ctrl/loginCtrl');
 
 const app = module.exports = express();
@@ -23,7 +23,7 @@ massive(connectionString).then(db => {app.set('db', db)});
 // app.use(passport.session());
 // app.use(express.static('./public'));
 
-// app.post('/postMatch', userCtrl.post_match);
+app.post('/postArticle', controller.post_article);
 // app.get('/getHome/:id', userCtrl.get_user_profile);
 
 
