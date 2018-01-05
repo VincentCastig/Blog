@@ -24,7 +24,7 @@ massive(connectionString).then(db => {app.set('db', db)});
 // app.use(express.static('./public'));
 
 app.post('/postArticle', userCtrl.post_article);
-// app.get('/getHome/:id', userCtrl.get_user_profile);
+app.get('/getAllArticles', userCtrl.get_all_articles);
 
 
 
