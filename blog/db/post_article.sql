@@ -1,2 +1,2 @@
-INSERT INTO article(id, title, date, content) VALUES($1, $2, null, $3)
+INSERT INTO articles(title, date, content) VALUES($1, date, $2)
 RETURNING *

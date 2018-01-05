@@ -7,7 +7,7 @@ const cors = require('cors');
 const path = require('path');
 const port = 3000
 
-const userCtrl = require('./Ctrl/controller');
+const userCtrl = require('./public/Ctrl/controller');
 // const loginCtrl = require('./ctrl/loginCtrl');
 
 const app = module.exports = express();
@@ -16,14 +16,14 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const connectionString = process.env.DATABASE_URL; //Connects to heroku bro
-console.log(connectionString)
+console.log('connetion', connectionString)
 massive(connectionString).then(db => {app.set('db', db)});
 
 // app.use(passport.initialize());
 // app.use(passport.session());
 // app.use(express.static('./public'));
 
-app.post('/postArticle', controller.post_article);
+app.post('/postArticle', userCtrl.post_article);
 // app.get('/getHome/:id', userCtrl.get_user_profile);
 
 
