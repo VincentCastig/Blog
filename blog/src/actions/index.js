@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const FETCH_ARTICLES = 'fetch_posts';
 
-const ROOT_URL = 'https://vintruv-fitness.herokuapp.com/api/users';
+const ROOT_URL = 'https://vincents-blog.herokuapp.com/getAllArticles';
 const API_KEY = '?key=PAPERCLIP';
 
 export function fetchArticles() {
