@@ -1,37 +1,37 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchArticles } from '../actions';
-import { Link } from 'react-router-dom';
 
 class Home extends Component {
-    // renderArticleList() {
-    //     return this.props.articles.map( (article) => {
-    //         return (
-    //         <li key={article.title} className="list-group-item">
-    //             <a><h2>{article.title}</h2></a>
-    //         </li>
-    //         )
-    //     })
-    // }
+    renderArticleList() {
+        return _.map(this.props.articles, (article) => {
+            return (
+            <li key={article.title} className="list-group-item">
+                <a><h2>{article.title}</h2></a>
+            </li>
+            )
+        })
+    }
 
     componentDidMount() {
         this.props.fetchArticles();
     }
 
     render() {
+        console.log(this.props.articles);
         return (
             <div className="listContainer">
-                {/* <ul>
+                <ul>
                     {this.renderArticleList()}
-                </ul> */}
-                list
+                </ul>
             </div>
         )
     }
 }
 
-// function mapStateToProps(state) {
-//     return { articles: state.articles}
-// }
+function mapStateToProps(state) {
+    return { articles: state.articles};
+}
 
-export default connect(null, { fetchArticles })(Home);
+export default connect(mapStateToProps, { fetchArticles })(Home);
