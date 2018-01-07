@@ -2,13 +2,14 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchArticles } from '../actions';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
     renderArticleList() {
         return _.map(this.props.articles, (article) => {
             return (
             <li key={article.title} className="list-group-item">
-                <a><h2>{article.id}</h2></a>
+                <a><h2><Link to="Fitness">{article.id}</Link></h2></a>
                 <img class="articleImage" src={(article.title)} />
             </li>
             )

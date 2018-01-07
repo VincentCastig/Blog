@@ -5,16 +5,18 @@ import About from '../Components/about';
 import Contact from '../Components/contact';
 import Home from '../Components/home';
 import Fitness from '../Components/fitness';
+import PostArticle from '../Components/post-article';
 
 const Routes = () => <h1>404</h1>;
 
 export default (
     <Switch>
-        <Route exact path="/" component={Home}></Route>
         <Route path="/contact" component={Contact}></Route>
         <Route path="/about" component={About}></Route>
-        <Route path="/fitness" component={Fitness}></Route>
         <Route path="/fitness/:id" component={Fitness}></Route>
+        <Route path="/fitness" component={Fitness}></Route>
+        <Route path="/post" component={PostArticle}></Route>
+        <Route exact path="/" component={Home}></Route>
         <Route component={Routes}></Route>
     </Switch>
 );
