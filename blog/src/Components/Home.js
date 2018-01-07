@@ -8,7 +8,8 @@ class Home extends Component {
         return _.map(this.props.articles, (article) => {
             return (
             <li key={article.title} className="list-group-item">
-                <a><h2>{article.title}</h2></a>
+                <a><h2>{article.id}</h2></a>
+                <img class="articleImage" src={(article.title)} />
             </li>
             )
         })
