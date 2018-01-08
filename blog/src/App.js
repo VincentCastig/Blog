@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './Routes/routes';
 import logo from './logo.svg';
 import './App.css';
-import Header from './Components/header';
+import Header from './Components/Header';
 
 class App extends Component {
   render() {
