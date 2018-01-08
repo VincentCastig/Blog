@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { axios } from 'axios'; 
 import { Label } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { postArticles } from '../actions';
 
 class PostArticle extends Component {
     renderField(field) {
+        const { meta: { touched, error } } = field;
+        const className =  `form-group ${touched && error ? 'has-danger' : ''}`
+
         return (
-        <div className="form-group">
+        <div className={className}>
             <Label>{field.label}</Label>
             <input
                 className="form-control"
                 type="text"
                 {...field.input} 
             />
-            {field.meta.error}
+            <div className="text-help">
+                {touched ? error: ''}
+            </div>
         </div>
         );
     }
     
     onSubmit(values) {
         console.log(values);
-        axios.post('localhost:3000/postArticle', { values } );
+        this.props.postArticles(values);
     }
 
     render() {
@@ -33,8 +42,8 @@ class PostArticle extends Component {
                     component={this.renderField}
                 />
                 <Field 
-                    label="Categories"
-                    name="categories"
+                    label="Category"
+                    name="category"
                     component={this.renderField}
                 />
                 <Field 
@@ -43,6 +52,7 @@ class PostArticle extends Component {
                     component={this.renderField}
                 />
                 <button type="submit" className="btn btn-primary">Submit</button>
+                <Link to="/" className="btn btn-danger">Cancel</Link>
             </form>
         );
     }
@@ -57,7 +67,7 @@ function validate(values) {
         errors.title = "Enter a Title"
     }
     if (!values.categories) {
-        errors.categories = "Enter a Category"
+        errors.category = "Enter a Category"
     }
     if (!values.content) {
         errors.content = "Enter Content"
@@ -70,4 +80,6 @@ function validate(values) {
 export default reduxForm({
     validate,
     form: 'PostsNewForm'
-})(PostArticle);
+})(
+    connect(null, { postArticles })(PostArticle)
+);

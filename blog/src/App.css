@@ -57,3 +57,7 @@
 .articleImage {
   width: 300px;
 }
+
+form a {
+  margin-left: 5px;
+}
