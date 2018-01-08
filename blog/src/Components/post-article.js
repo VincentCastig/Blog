@@ -66,7 +66,7 @@ function validate(values) {
     if (!values.title) {
         errors.title = "Enter a Title"
     }
-    if (!values.categories) {
+    if (!values.category) {
         errors.category = "Enter a Category"
     }
     if (!values.content) {
