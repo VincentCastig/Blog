@@ -6,6 +6,7 @@ import Contact from '../Components/contact';
 import Home from '../Components/home';
 import Fitness from '../Components/fitness';
 import PostArticle from '../Components/post-article';
+import PostsShow from '../Components/posts_show';
 
 const Routes = () => <h1>404</h1>;
 
@@ -15,6 +16,7 @@ export default (
         <Route path="/about" component={About}></Route>
         <Route path="/fitness/:id" component={Fitness}></Route>
         <Route path="/fitness" component={Fitness}></Route>
+        <Route path="/post/:id" component={PostsShow}></Route>
         <Route path="/post" component={PostArticle}></Route>
         <Route exact path="/" component={Home}></Route>
         <Route component={Routes}></Route>

@@ -8,9 +8,9 @@ class Home extends Component {
     renderArticleList() {
         return _.map(this.props.articles, (article) => {
             return (
-            <li key={article.title} className="list-group-item">
-                <a><h2><Link to="Fitness">{article.id}</Link></h2></a>
-                <img class="articleImage" src={(article.title)} />
+            <li key={article.id} className="list-group-item">
+                <a><h2><Link to="Fitness">{article.title}</Link></h2></a>
+                <img class="articleImage" src={(article.content)} />
             </li>
             )
         })

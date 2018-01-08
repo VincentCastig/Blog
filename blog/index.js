@@ -25,6 +25,7 @@ massive(connectionString).then(db => {app.set('db', db)});
 
 app.post('/postArticle', userCtrl.post_article);
 app.get('/getAllArticles', userCtrl.get_all_articles);
+app.get('/getArticle/:id', userCtrl.get_article);
 
 
 

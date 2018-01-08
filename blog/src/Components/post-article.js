@@ -28,7 +28,9 @@ class PostArticle extends Component {
     
     onSubmit(values) {
         console.log(values);
-        this.props.postArticles(values);
+        this.props.postArticles(values, () => {
+            this.props.history.push('/');
+        });
     }
 
     render() {
