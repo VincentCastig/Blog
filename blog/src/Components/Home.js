@@ -9,7 +9,7 @@ class Home extends Component {
         return _.map(this.props.articles, (article) => {
             return (
             <li key={article.id} className="list-group-item">
-                <a><h2><Link to="Fitness">{article.title}</Link></h2></a>
+                <a><h2><Link to={`post/${article.id}`}>{article.title}</Link></h2></a>
                 <img class="articleImage" src={(article.content)} />
             </li>
             )
@@ -33,6 +33,7 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log('state', state);
     return { articles: state.articles};
 }
 

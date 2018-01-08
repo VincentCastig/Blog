@@ -13,6 +13,7 @@ module.exports = {
     get_article: (req, res) => {
         const db = req.app.get('db');
         const { id } = req.params;
+        console.log(id)
         db.get_article(id).then((data) => res.status('200').send(data)).catch(() => rest.status.send('404'));
     }
 }

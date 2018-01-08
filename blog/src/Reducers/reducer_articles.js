@@ -1,14 +1,15 @@
 import _ from 'lodash';
-import { FETCH_ARTICLES, FETCH_ONE_ARTICLE } from '../actions';
+import { FETCH_ARTICLES, FETCH_ONE } from '../actions';
 
 export default (state = {}, action) => {
     switch (action.type) {
-    case FETCH_ONE_ARTICLE:
+    case FETCH_ONE:
         // const post = action.payload.data;
         // const newState = { ...state }
         // newState[post.id] = post;
         // return { newState }
-        return { ...state, [action.payload.data.id]: action.payload.data }
+        console.log('action payload', action.payload.data[0])
+        return { ...state, [action.payload.data[0].id]: action.payload.data[0] }
 
     case FETCH_ARTICLES:    
         // return _.mapKeys(action.payload.data, 'id');

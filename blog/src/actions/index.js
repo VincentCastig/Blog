@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_ARTICLES = 'fetch_articles';
-export const FETCH_ONE_ARTICLE = 'fetch_one_article';
+export const FETCH_ONE = 'fetch_one';
 export const POST_ARTICLES = 'post_articles';
 
 const ROOT_URL = 'https://vincents-blog.herokuapp.com';
@@ -18,12 +18,14 @@ export function fetchArticles() {
     };
 }
 
-export function fetchOneArticle(values) {
-    const request = axios.get(`${ROOT_URL}/getArticle/${values}`);
+export function fetchPost(id) {
+    console.log('id', id)
+    const request = axios.get(`${ROOT_URL}/getArticle/${id}`)
+    .then((res) =>  res);
 
-
+    console.log('request', request);
     return {
-        type: FETCH_ONE_ARTICLE,
+        type: FETCH_ONE,
         payload: request
     };
 }
