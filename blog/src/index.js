@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
 import './index.css';
 import App from './App';
-import reducers from './Reducers';
 import registerServiceWorker from './registerServiceWorker';
+
+import reducers from './Reducers';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);

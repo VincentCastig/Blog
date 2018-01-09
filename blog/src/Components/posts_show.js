@@ -23,7 +23,8 @@ class PostsShow extends Component {
                 <div className="listContainer">
                     <h3>{post.title}</h3>
                     <h6>{post.category}</h6>
-                    <p>{post.content}</p>
+                    {/* <p>{post.content}</p> */}
+                    <img class="articleImage" src={(post.content)} />
                 </div>
             );
         }

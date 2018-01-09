@@ -26,6 +26,7 @@ class Home extends Component {
             <div className="listContainer">
                 <ul>
                     {this.renderArticleList()}
+                    <li>Home</li>
                 </ul>
             </div>
         )
@@ -37,4 +38,5 @@ function mapStateToProps(state) {
     return { articles: state.articles};
 }
 
+// export default Home;
 export default connect(mapStateToProps, { fetchArticles })(Home);
