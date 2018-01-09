@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchArticles } from '../actions';
+// import { connect } from 'react-redux';
+// import { fetchArticles } from '../actions';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
