@@ -9,7 +9,7 @@ class Header extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           
           <a><Link to="/">Home</Link></a>
-          <a><NavDropdown eventKey="1" title="Category" id="basic-nav-dropdown">
+          <a><NavDropdown eventKey="1" title="Category" id="">
             <MenuItem>Programming</MenuItem>
             <MenuItem><Link to="Fitness">Fitness</Link></MenuItem>
             <MenuItem>Cooking</MenuItem>
