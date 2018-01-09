@@ -8,25 +8,10 @@
 }
 
 .App-header {
-  background-color: rgba(184, 186, 196, 0.192);
+  background-color: #222;
   height: 150px;
   padding: 20px;
-  color: black;
-  font-size: 42px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 700;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-  display: flex;
-}
-.App-header a{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 22px;
-  color: rgb(73, 56, 33)
-}
-.App-header h1{
-  font-size: 48px;
+  color: white;
 }
 
 .App-title {
@@ -40,24 +25,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-.list-group-item {
-  width: 50%;
-  height: 400px;
-}
-.listContainer{
-  margin: 10px;
-}
-
-.dropdown {
-  list-style-type: none;
-}
-
-.articleImage {
-  width: 300px;
-}
-
-form a {
-  margin-left: 5px;
 }
