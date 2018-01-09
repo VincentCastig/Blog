@@ -4,7 +4,7 @@ import './App.css';
 
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './Routes/routes';
-// import Header from './Components/header';
+import Header from './Components/header';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
         <div className="App">
-          {/* <Header /> */}
+          <Header />
         
             { Routes }
         </div>
