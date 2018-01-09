@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import About from '../Components/about';
 // import Contact from '../Components/contact';
-// import Home from '../Components/home';
+import Home from '../Components/home';
 // import Fitness from '../Components/fitness';
 // import PostArticle from '../Components/post-article';
 // import PostsShow from '../Components/posts_show';
