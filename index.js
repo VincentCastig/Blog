@@ -1,8 +1,12 @@
+
+const nodemailer = require('nodemailer');
+
 const dotenv = require('dotenv').config();
 const express = require('express');
 const { json } = require('body-parser');
 const cors = require('cors');
 const massive = require('massive');
+const config = require('./mailer/config/config');
 const port = 3000
 
 const userCtrl = require('./public/Ctrl/controller');
@@ -16,11 +20,47 @@ console.log('connetion', connectionString)
 massive(connectionString).then(db => {app.set('db', db)});
 
 
+const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      type: 'OAuth2',
+      config: process.env.auth
+    }
+  });
+  
+   const send = ({ email, name, text }) => {
+    const from = name && email ? `${name} <${email}>` : `${name || email}`
+    const message = {
+      from,
+      to: 'react.nodemailer@gmail.com',
+      subject: `New message from ${from} at creating-contact-forms-with-nodemailer-and-react`,
+      text,
+      replyTo: from
+    };
+  
+    return new Promise((resolve, reject) => {
+      transporter.sendMail(message, (error, info) =>
+        error ? reject(error) : resolve(info)
+      )
+    })
+  }
+
 
 app.post('/postArticle', userCtrl.post_article);
 app.get('/getAllArticles', userCtrl.get_all_articles);
-app.get('/getNewArticles', userCtrl.get_new_articles);
 app.get('/getArticle/:id', userCtrl.get_article);
+
+app.post('/contact', (req, res) => {
+    const { email = '', name = '', message = '' } = req.body
+  
+    send({ email, name, text: message }).then(() => {
+      console.log(`Sent the message "${message}" from <${name}> ${email}.`);
+      res.redirect('/#success');
+    }).catch((error) => {
+      console.log(`Failed to send the message "${message}" from <${name}> ${email} with the error ${error && error.message}`);
+      res.redirect('/#error');
+    })
+  })
 
 
 
