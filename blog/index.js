@@ -3,6 +3,7 @@ const dotenv = require('dotenv').config();
 const express = require('express');
 const { json } = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 const port = 3000
 
 const userCtrl = require('./public/Ctrl/controller');
@@ -10,6 +11,8 @@ const userCtrl = require('./public/Ctrl/controller');
 const app = module.exports = express();
 app.use(json());
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 const connectionString = process.env.DATABASE_URL; //Connects to heroku bro
 console.log('connetion', connectionString)
