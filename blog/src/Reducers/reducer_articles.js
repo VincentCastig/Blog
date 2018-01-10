@@ -8,7 +8,6 @@ export default (state = {}, action) => {
         // const newState = { ...state }
         // newState[post.id] = post;
         // return { newState }
-        console.log('action payload', action.payload.data[0])
         return { ...state, [action.payload.data[0].id]: action.payload.data[0] }
 
     case FETCH_ARTICLES:    

@@ -19,11 +19,11 @@ export function fetchArticles() {
 }
 
 export function fetchPost(id) {
-    console.log('id', id)
+    // console.log('id', id)
     const request = axios.get(`${ROOT_URL}/getArticle/${id}`)
     .then((res) =>  res);
 
-    console.log('request', request);
+    // console.log('request', request);
     return {
         type: FETCH_ONE,
         payload: request

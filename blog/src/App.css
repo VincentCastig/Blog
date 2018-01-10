@@ -42,12 +42,23 @@
   to { transform: rotate(360deg); }
 }
 
-.list-group-item {
-  width: 50%;
-  height: 400px;
+.list-group {
+  
+  background-color: transparent;
 }
+
+.list-group-item {
+  height: 400px;
+  background-color: rgba(184, 186, 196, 0.192);;
+  list-style-type: decimal;
+  cursor: pointer;
+  margin: 20px;
+}
+
+
 .listContainer{
-  margin: 10px;
+  background-color: transparent;
+  
 }
 
 .dropdown {
@@ -55,9 +66,10 @@
 }
 
 .articleImage {
-  width: 300px;
+  height: 70%;
 }
 
 form a {
   margin-left: 5px;
 }
+
