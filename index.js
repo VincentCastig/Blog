@@ -6,7 +6,6 @@ const express = require('express');
 const { json } = require('body-parser');
 const cors = require('cors');
 const massive = require('massive');
-const config = require('./mailer/config/config');
 const port = 3000
 
 const userCtrl = require('./public/Ctrl/controller');
@@ -23,16 +22,21 @@ massive(connectionString).then(db => {app.set('db', db)});
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      type: 'OAuth2',
-      config: process.env.auth
+        type: 'OAuth2',
+        user: process.env.user,
+        refreshToken: process.env.refreshToken,
+        accessToken: process.env.accessToken,
+        clientId: process.env.clientId,
+        clientSecret: process.env.clientSecret
     }
   });
   
    const send = ({ email, name, text }) => {
+       console.log('sending', email, name, text)
     const from = name && email ? `${name} <${email}>` : `${name || email}`
     const message = {
       from,
-      to: 'react.nodemailer@gmail.com',
+      to: 'vincent.castig@gmail.com',
       subject: `New message from ${from} at creating-contact-forms-with-nodemailer-and-react`,
       text,
       replyTo: from
@@ -50,9 +54,9 @@ app.post('/postArticle', userCtrl.post_article);
 app.get('/getAllArticles', userCtrl.get_all_articles);
 app.get('/getArticle/:id', userCtrl.get_article);
 
-app.post('/contact', (req, res) => {
-    const { email = '', name = '', message = '' } = req.body
-  
+app.post('/email', (req, res) => {
+    const { email , name,  message } = req.body
+    console.log(req.body);
     send({ email, name, text: message }).then(() => {
       console.log(`Sent the message "${message}" from <${name}> ${email}.`);
       res.redirect('/#success');
