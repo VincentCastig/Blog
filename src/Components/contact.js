@@ -3,7 +3,7 @@ import React from 'react';
 const Contact = () => {
     return (
         // <h1>Welcome to the Contact Page</h1>
-        <form className="contact-form" method="POST" action="/contact">
+        <form className="contact-form" method="POST" action="/email">
           <div className="form-field">
             <label htmlFor="name">
               <div className="label-content">Name:</div>

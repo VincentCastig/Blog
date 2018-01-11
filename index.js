@@ -31,6 +31,7 @@ const transporter = nodemailer.createTransport({
     }
   });
   
+  
    const send = ({ email, name, text }) => {
        console.log('sending', email, name, text)
     const from = name && email ? `${name} <${email}>` : `${name || email}`
@@ -56,7 +57,7 @@ app.get('/getArticle/:id', userCtrl.get_article);
 
 app.post('/email', (req, res) => {
     const { email , name,  message } = req.body
-    console.log(req.body);
+    console.log(name);
     send({ email, name, text: message }).then(() => {
       console.log(`Sent the message "${message}" from <${name}> ${email}.`);
       res.redirect('/#success');
