@@ -6,6 +6,7 @@ const express = require('express');
 const { json } = require('body-parser');
 const cors = require('cors');
 const massive = require('massive');
+const path = require('path');
 const port = 3000
 
 const userCtrl = require('./public/Ctrl/controller');
@@ -15,6 +16,7 @@ app.use(json());
 app.use(cors());
 
 const connectionString = process.env.DATABASE_URL; //Connects to heroku bro
+app.use(express.static(path.join(__dirname, 'public')));
 console.log('connetion', connectionString)
 massive(connectionString).then(db => {app.set('db', db)});
 
