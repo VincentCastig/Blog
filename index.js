@@ -46,8 +46,12 @@ const transporter = nodemailer.createTransport({
     };
   
     return new Promise((resolve, reject) => {
-      transporter.sendMail(message, (error, info) =>
-        error ? reject(error) : resolve(info)
+      transporter.sendMail(message, (error, info) => {
+        console.log(message)
+        console.log(info)
+        console.log(error)
+        return error ? reject(error) : resolve(info)
+      }
       )
     })
   }
