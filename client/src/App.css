@@ -41,6 +41,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+@media (max-width:528px){
+  .articleImage {
+    display: none;
+  }
+}
+.search-bar {
+  margin: 20px;
+  text-align: center;
+}
+
+.search-bar input {
+  width:75%
+}
 
 .list-group {
   
@@ -49,11 +62,20 @@
 
 .list-group-item {
   height: 400px;
-  background-color: rgba(184, 186, 196, 0.192);;
+  background-color: rgba(184, 186, 196, 0.192);
   list-style-type: decimal;
   cursor: pointer;
   margin: 20px;
 }
+
+.list-side-item {
+  height: 300px;
+  background-color: rgba(184, 186, 196, 0.192);
+  list-style-type: none;
+  cursor: pointer;
+  margin: 20px 0px;
+}
+
 
 
 .listContainer{
@@ -66,10 +88,82 @@
 }
 
 .articleImage {
-  height: 70%;
+  height: 68%;
 }
 
 form a {
   margin-left: 5px;
 }
 
+.contact-form {
+  max-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.contact-form > :not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.contact-form .form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form .label-content {
+  margin-bottom: 4px;
+}
+
+.contact-form input, .contact-form textarea {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+}
+
+.contact-form label {
+  text-align: left;
+}
+.message-content .form-control {
+  height: 200px;
+}
+.email-field .form-control{
+  text-align: center;
+  height: 15%;
+}
+.name-field .form-control{
+  text-align: center;
+  height: 15%;
+
+}
+.form-group {
+  margin-top: 10px;
+}
+.form-control {
+  margin: 8px;
+  border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+}
+
+.label {
+  font-size: 17px;
+  background-color: rgba(184, 186, 196, 0.192);
+  color: black;
+}
+.showContainer {
+  background-color: rgba(184, 186, 196, 0.192);
+}
+.show-post-item {
+  background-color: rgba(184, 186, 196, 0.192);
+  list-style-type: decimal;
+  cursor: pointer;
+  margin: 20px;
+  padding: 20px;
+}
+.show-post-item img{
+
+  margin: 15px;
+}

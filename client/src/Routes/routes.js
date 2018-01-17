@@ -22,8 +22,7 @@ export default (
         <Route path="/cooking" component={Cooking}></Route>
         <Route path="/bookreviews" component={BookReviews}></Route>
         <Route path="/fitness" component={Fitness}></Route>
-        <Route path="/fitness" component={Fitness}></Route>
-        <Route path="/post/:id" component={PostsShow}></Route>
+        <Route path="/:id" component={PostsShow}></Route>
         <Route path="/post" component={PostArticle}></Route>
         <Route exact path="/" component={Home}></Route> 
         <Route component={Routes}></Route>

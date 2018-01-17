@@ -1,33 +1,67 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { Label } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { postEmail } from '../actions';
 
-const Contact = () => {
-    return (
-        // <h1>Welcome to the Contact Page</h1>
-        <form className="contact-form" method="POST" action="/email">
-          <div className="form-field">
-            <label htmlFor="name">
-              <div className="label-content">Name:</div>
-              <input type="text" name="name" required />
-          </label>
-    </div>
+class Contact extends Component {
+    renderField(field) {
+        const { meta: { touched, error } } = field;
+        const className =  `form-group ${touched && error ? 'has-danger' : ''}`
 
-    <div className="form-field">
-      <label htmlFor="email">
-        <div className="label-content">Email:</div>
-        <input type="email" name="email" required />
-      </label>
-    </div>
+        return (
+        <div className={className}>
+            <Label>{field.label}</Label>
+            <input
+                className="form-control"
+                type="text"
+                {...field.input} 
+            />
+            <div className="text-help">
+                {touched ? error: ''}
+            </div>
+        </div>
+        );
+    }
+    
+    onSubmit(values) {
+      console.log('values', values)
+        this.props.postEmail(values, () => {
+            this.props.history.push('/');
+        });
+    }
 
-    <div className="form-field">
-      <label htmlFor="message">
-        <div className="label-content">Message:</div>
-        <textarea className="stretch" name="message" rows="5" required />
-      </label>
-    </div>
+    render() {
+        const { handleSubmit } = this.props;
 
-    <button type="submit">Send</button>
+        return (
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="">
+              <div className="name-field">
+                <Field 
+                    label="Name"
+                    name="name"
+                    component={this.renderField}
+                />
+              </div>
+              <div className="email-field">
+                <Field 
+                    label="Email"
+                    name="email"
+                    component={this.renderField}
+                />
+              </div>
+                <div className="message-content">
+                <Field 
+                    label="Comment"
+                    name="message"
+                    component={this.renderField}
+                />
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+                <Link to="/" className="btn btn-danger">Cancel</Link>
 
-    <div>
+                <div>
       { window.location.hash === '#success' &&
         <div id="success">
           <p>Your message has been sent!</p>
@@ -39,8 +73,33 @@ const Contact = () => {
         </div>
       }
     </div>
-    </form>
-    )
+            </form>
+        );
+    }
 }
 
-export default Contact;
+function validate(values) {
+    //console.log(values -> {title: 'asdf', categories: 'qwerty'})
+    const errors = {}
+
+    //validate the inputs from the values
+    if (!values.name) {
+        errors.name = "Enter a Name"
+    }
+    if (!values.email) {
+        errors.email = "Enter Your Email"
+    }
+    if (!values.message) {
+        errors.message = "Enter Your Message"
+    }
+    //if errors is empty, the form is fine to submit
+    //if errors has any properties, the form is invalid
+    return errors;
+}
+
+export default reduxForm({
+    validate,
+    form: 'PostsEmailForm'
+})(
+    connect(null, { postEmail })(Contact)
+);

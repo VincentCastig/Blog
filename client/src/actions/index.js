@@ -4,7 +4,8 @@ export const FETCH_ARTICLES = 'fetch_articles';
 export const FETCH_ONE = 'fetch_one';
 export const POST_ARTICLES = 'post_articles';
 
-const ROOT_URL = 'https://gentle-falls-72108.herokuapp.com';
+// git 
+const ROOT_URL = 'http://vincentcastigliolaiii.com';
 // const POST_URL = 'https://vincents-blog.herokuapp.com/postArticle';
 // const API_KEY = '?key=1';
 

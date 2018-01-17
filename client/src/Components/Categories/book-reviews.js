@@ -37,7 +37,7 @@ class BookReviews extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('state', state);
+    // console.log('state', state);
     return { articles: state.articles};
 }
 
