@@ -9,7 +9,7 @@ class Fitness extends Component {
         return _.map(this.props.articles, (article) => {
             if(article.category == 'Fitness') {
             return (
-            <Link to={`post/${article.id}`} key={article.id} className="list-group-item">
+            <Link to={`${article.id}`} key={article.id} className="list-group-item">
                 <a><h2><Link to={`post/${article.id}`}>{article.title}</Link></h2></a>
                 <img class="articleImage" src={(`${article.image}`)} />
                 <p >{article.content}</p>
