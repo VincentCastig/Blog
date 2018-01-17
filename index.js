@@ -9,15 +9,16 @@ const massive = require('massive');
 const path = require('path');
 const port = 3000
 
-const userCtrl = require('./public/Ctrl/controller');
+const userCtrl = require('./Ctrl/controller');
 
 const app = module.exports = express();
 app.use(json());
 app.use(cors());
 
 const connectionString = process.env.DATABASE_URL; //Connects to heroku bro
-app.use(express.static(path.join(__dirname, 'public')));
-console.log('connetion', connectionString)
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
+// console.log('connetion', connectionString)
 massive(connectionString).then(db => {app.set('db', db)});
 
 
