@@ -3,9 +3,9 @@ import axios from 'axios';
 export const FETCH_ARTICLES = 'fetch_articles';
 export const FETCH_ONE = 'fetch_one';
 export const POST_ARTICLES = 'post_articles';
+export const POST_EMAIL = 'post_email';
 
-const ROOT_URL = 'http://vincentcastigliolaiii.com';
-// const POST_URL = 'https://vincents-blog.herokuapp.com/postArticle';
+const ROOT_URL = 'https://vincents-blog.herokuapp.com';
 // const API_KEY = '?key=1';
 
 export function fetchArticles() {
@@ -37,6 +37,17 @@ export function postArticles(values, callback) {
 
     return {
         type: POST_ARTICLES,
+        payload: request
+    };
+}
+
+export function postEmail(values, callback) {
+    const request = axios.post(`${ROOT_URL}/email`, values )
+        .then(() => callback());
+
+
+    return {
+        type: POST_EMAIL,
         payload: request
     };
 }
