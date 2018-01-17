@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import { Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Dropdown from 'react-dropdown';
+// import React, { Component } from 'react';
+// import { Col } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
+// import Dropdown from 'react-dropdown';
 
-class Social extends Component {
-    render() {
+// class Social extends Component {
+//     render() {
       
 
-        return (
-            <div>
-                <Col md={3}>
-                    Social
-                </Col>
-            </div>
-        );
-    }
-}
+//         return (
+//             <div>
+//                 <Col md={3}>
+//                     Social
+//                 </Col>
+//             </div>
+//         );
+//     }
+// }
 
-export default Social;
+// export default Social;

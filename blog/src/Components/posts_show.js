@@ -15,11 +15,22 @@ class PostsShow extends Component {
             if(!post) {
                 return <div>Loading...</div>
             }
+            else if(post.category === 'Book Reviews') {
+                return (
+                    <div className="show-post-item">
+                        <h3>{post.title}</h3>
+                        <Link to={`/BookReviews` }><h4>{post.category}</h4></Link>
+                    {/* <p>{post.content}</p> */}
+                        <img class="articleImage" src={(`${post.image}`)} />
+                        <p>{post.content}</p>
+                </div>
+                )
+            }
            
             return (
-                <div className="listContainer">
+                <div className="show-post-item">
                     <h3>{post.title}</h3>
-                    <Link to="/fitness"><h6>{post.category}</h6></Link>
+                    <Link to={`/${post.category}` }><h4>{post.category}</h4></Link>
                     {/* <p>{post.content}</p> */}
                     <img class="articleImage" src={(`${post.image}`)} />
                     <p>{post.content}</p>
