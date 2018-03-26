@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { fetchArticles } from '../actions';
 // import SearchBar from './search-bar'
 import { Link } from 'react-router-dom';
-import { Grid, Col, Media } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 class Home extends Component {
     renderArticleList() {
-        
+        console.log(articles)
         const articles = _.map(this.props.articles, (article) => {
             // const time = article.date.substring(0,10);
+            
             return article;
         })
         const reverseArticles = articles.reverse();
@@ -20,9 +21,9 @@ class Home extends Component {
             if(article.id > reverseArticles.length - 5) {
                 return (
                     <Link to={`${article.id}`} key={article.id} className="list-group-item">
-                        <a><h2><Link to={`${article.id}`}>{article.title}</Link></h2></a>
-                        <h5>{time}</h5>
-                        <img class="articleImage" src={(`${article.image}`)} />
+                        <h2>{article.title}</h2>
+                        <h5>{time} - by Vincent Castigliola III</h5>
+                        <img className="articleImage" src={(require(`../img/${article.title}.${article.image}`))} alt={`${article.title}`}/>
                     </Link>
                 )
             }
@@ -37,7 +38,7 @@ class Home extends Component {
         // console.log(this.props.articles);
         return (
                 
-                <Col md={12} className="list-group">
+                <Col className="list-group">
                     <ul className="listContainer">
                         {this.renderArticleList()}
                     </ul>

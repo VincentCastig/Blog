@@ -9,9 +9,10 @@ class Contact extends Component {
     renderField(field) {
         const { meta: { touched, error } } = field;
         const className =  `form-group ${touched && error ? 'has-danger' : ''}`
+        
 
         return (
-        <div className={className}>
+        <div className={className} >
             <Label>{field.label}</Label>
             <input
                 className="form-control"
@@ -36,7 +37,7 @@ class Contact extends Component {
         const { handleSubmit } = this.props;
 
         return (
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="">
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="listContainer">
               <div className="name-field">
                 <Field 
                     label="Name"

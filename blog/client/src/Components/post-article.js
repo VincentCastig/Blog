@@ -9,6 +9,7 @@ class PostArticle extends Component {
     renderField(field) {
         const { meta: { touched, error } } = field;
         const className =  `form-group ${touched && error ? 'has-danger' : ''}`
+        
 
         return (
         <div className={className}>
@@ -32,10 +33,13 @@ class PostArticle extends Component {
     }
 
     render() {
+        // const content = {
+        //     height: 200
+        // }
         const { handleSubmit } = this.props;
 
         return (
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="listContainer">
                 <Field 
                     label="Title"
                     name="title"
@@ -46,11 +50,13 @@ class PostArticle extends Component {
                     name="category"
                     component={this.renderField}
                 />
-                <Field 
-                    label="Post Content"
-                    name="content"
-                    component={this.renderField}
-                />
+                <div className="message-content">
+                    <Field 
+                        label="Post Content"
+                        name="content"
+                        component={this.renderField}
+                    />
+                </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <Link to="/" className="btn btn-danger">Cancel</Link>
             </form>

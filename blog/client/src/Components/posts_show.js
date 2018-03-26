@@ -21,8 +21,8 @@ class PostsShow extends Component {
                         <h3>{post.title}</h3>
                         <Link to={`/BookReviews` }><h4>{post.category}</h4></Link>
                     {/* <p>{post.content}</p> */}
-                        <img class="articleImage" src={(`${post.image}`)} />
-                        <p>{post.content}</p>
+                    <img class="articleImage" src={(require(`../img/${post.title}.${post.image}`))} alt={post.title} />
+                        <pre>{post.content}</pre>
                 </div>
                 )
             }
@@ -32,8 +32,8 @@ class PostsShow extends Component {
                     <h3>{post.title}</h3>
                     <Link to={`/${post.category}` }><h4>{post.category}</h4></Link>
                     {/* <p>{post.content}</p> */}
-                    <img class="articleImage" src={(`${post.image}`)} />
-                    <p>{post.content}</p>
+                    <img class="articleImage" src={(require(`../img/${post.title}.${post.image}`))} alt={post.title} />
+                    <pre>{post.content}</pre>
                 </div>
             );
         }

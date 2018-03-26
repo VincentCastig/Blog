@@ -8,13 +8,13 @@ class BookReviews extends Component {
     renderArticleList() {
         return _.map(this.props.articles, (article) => {
             const time = article.date.substring(0,10);
-            if(article.category == 'Book Reviews') {
+            if(article.category === 'Book Reviews') {
             return (
             // <li key={article.id} className="list-group-item">
             <Link key={article.id} to={`${article.id}`} className="list-group-item">
                 <a><h2><Link to={`${article.id}`}>{article.title}</Link></h2></a>
-                <h5>{time}</h5>
-                <img class="articleImage" src={(`${article.image}`)} />
+                <h5>{time} - by Vincent Castigliola III</h5>
+                <img class="articleImage" src={(require(`../../img/${article.title}.${article.image}`))} alt={article.title} />
             </Link>
             // </li>
             )
